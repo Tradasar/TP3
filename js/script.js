@@ -1,36 +1,25 @@
-const express = require("express");
-const app = express();
-const PORT = 3000;
-/*fetch("http://www.omdbapi.com/?apikey=[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]&")
-    .then(res => res.json())
-    .then(datos => {
-        let lista = document.getElementById("lista");
-        let li;
-        datos.forEach(dato => {
-            if (dato.compra && dato.venta) {
-                li = document.createElement("li");
-                li.innerText = `${dato.nombre}: ${dato.compra} - ${dato.venta}`;
-                lista.appendChild(li);*/
+axios({
+    method: 'get',
+    url: 'http://www.omdbapi.com/?apikey=a79a25cd&s=Nombre&y=año&type=Tipo',
+  }).then(response => {
+    let Nombre = document.getElementById("Nombre");
+    let año = document.getElementById("Año");
+    let Serie = document.getElementById("Series");
+    let Pelicula = document.getElementById("Peliculas");
+    let Episodio = document.getElementById("Episodios");
+    response.data.forEach(dato => {
+      if (dato.compra && dato.venta) {
+        li = document.createElement("li");
+        li.innerText = `${dato.nombre}: ${dato.compra} - ${dato.venta}`;
+        lista.appendChild(li);
+      }
+    });
+  });
 
-Peliculas = []; 
-Series = [];
-Episodios = [];
+
 function Buscar(){
 
 }
 
-
-/*
-Pelis/series:
-
-Nombre
-descripcion
-linkimagen
----------------------
-Episodios:
-
-Nombre
-descripcion
-Serie
-linkimagen
-*/
+console.log(año)
+console.log(Nombre)
